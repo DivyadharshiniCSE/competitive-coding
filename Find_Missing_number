@@ -1,0 +1,14 @@
+def find_missing_element(arr):
+    n = len(arr)
+    # Calculate the sum of all elements in the array
+    arr_sum = sum(arr)
+    # Calculate the expected sum of elements in a complete sequence
+    expected_sum = (n + 1) * (n + 2) // 2
+    # Find the missing element by subtracting the array sum from the expected sum
+    missing_element = expected_sum - arr_sum
+    return missing_element
+
+# Example usage:
+input_array = [1, 2, 4, 6, 3, 7, 8]
+missing = find_missing_element(input_array)
+print(f"The missing element is {missing}")
