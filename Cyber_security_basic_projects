@@ -1,0 +1,18 @@
+import requests
+
+# Function to check for SQL injection vulnerability
+def check_sql_injection(url):
+    payload = "1' OR '1'='1"
+    response = requests.get(url + payload)
+    
+    # Check the response content for indicators of a successful SQL injection
+    if "error" in response.text.lower():
+        print(f"Potential SQL Injection Vulnerability found at {url}")
+    else:
+        print(f"No SQL Injection Vulnerability found at {url}")
+
+# Input the target URL
+target_url = input("Enter the target URL: ")
+
+# Call the function to check for SQL injection
+check_sql_injection(target_url)
